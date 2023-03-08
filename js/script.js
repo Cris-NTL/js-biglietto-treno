@@ -10,8 +10,8 @@
 
 // LOGIC
 // Input km and age of passenger
-const kmNumber = prompt('Inserire il numero di Km che si vuole percorrere');
-const ageNumber = prompt('Inserire l\'età del passeggero');
+const kmNumber = prompt('Ciao! Inserisci il numero di Km che vuoi percorrere!');
+const ageNumber = prompt('Inserisci l\'età del passeggero!');
 console.log(ageNumber, kmNumber);
 
 // Calculating travelPrice
@@ -25,19 +25,24 @@ if (ageNumber < 18){
     const lastPrice = (travelPrice - discount).toFixed(2); 
     console.log(lastPrice);
     // Show finalPrice on HTML
-    document.getElementById("price").innerHTML = `Il prezzo del biglietto è di € ${lastPrice}`;
+    document.getElementById("price").innerHTML = `Il prezzo del tuo biglietto: ${lastPrice} €`;
 }
 else if (ageNumber > 65){
     const discount = (travelPrice * 40 / 100);
     const lastPrice = (travelPrice - discount).toFixed(2);
     console.log(lastPrice);
     // Show finalPrice on HTML
-    document.getElementById("price").innerHTML = `Il prezzo del biglietto è di € ${lastPrice}`;
+    document.getElementById("price").innerHTML = `Il prezzo del tuo biglietto: ${lastPrice} €`;
 } 
 else {
     lastPrice = travelPrice.toFixed(2);
     console.log(lastPrice);
     // Show finalPrice on HTML
-    document.getElementById("price").innerHTML = `Il prezzo del biglietto è di € ${lastPrice}`;
+    document.getElementById("price").innerHTML = `Il prezzo del tuo biglietto: ${lastPrice} €`;
 }
 
+// Check errors
+if(isNaN(kmNumber && ageNumber) === true) {
+    console.log("Per favore, inserisci solo valori numerici. Grazie!");
+    document.getElementById("price").innerHTML = "Per favore, inserisci solo valori numerici. Grazie!"
+}
